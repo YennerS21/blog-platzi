@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return 'home';
-});
-Route::get('/blog', function () {
-    return 'Publicaciones';
-});
-Route::get('/{post}', function () {
-    return 'Detalles de la publicacion';
+Route::controller(PageController::class)->group(function ()
+{
+    # code...
+    Route::get('/home', 'home')->name('home');
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/blog/{post:slug}', 'post')->name('post');
 });
