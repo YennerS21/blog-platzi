@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -10,9 +11,10 @@ class PageController extends Controller
         return view('home');
     }
     public function blog(){
-        return view('blog');
+        $posts = Post::get();
+        return view('blog', ['posts'=>$posts]);
     }
-    public function post($slug){
-        return view('post');
+    public function post(Post $post){
+        return view('post', ['post'=>$post]);
     }
 }

@@ -1,8 +1,8 @@
 @extends('template')
 @section('content')
   <p>
-    titulo: <br>
-    contenido: <br>
-    autor: 
+    {{ $post->title }} <br>
+    {{ $post->body }}<br>
+    {{ $post->user->email }}
   </p>
 @endsection
