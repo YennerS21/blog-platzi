@@ -8,4 +8,5 @@
         <span>{{ $post->user->name }}</span>
       </p>
   @endforeach
+  {{ $posts->links() }}
 @endsection
