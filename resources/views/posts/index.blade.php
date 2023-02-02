@@ -1,7 +1,10 @@
 <x-app-layout>
   <x-slot name="header">
-      <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+      <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-300 leading-tight flex items-center justify-between">
           {{ __('Posts') }}
+          <a 
+          class="text-xs bg-gray-800 text-withe rounded px-2 py-1"
+          href="{{ route('posts.create') }}">Crear</a>
       </h2>
   </x-slot>
 
@@ -15,13 +18,17 @@
                       <tr class="border-b border-gray-200 text-sm">
                         <td class="px-6 py-4">{{ $post->title }}</td>
                         <td class="px-6 py-4">
-                          <a href="" class="text-indigo-500">editar</a>
+                          <a href="{{ route('posts.edit', $post) }}" class="text-indigo-600">Editar</a>
                         </td>
                         <td class="px-6 py-4">
                           <form action="{{ route('posts.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Eliminar" onclick="return confirm('Desea eliminar esta publicacion?')">
+                            <input t
+                            ype="submit" 
+                            value="Eliminar" 
+                            class="bg-gray-800 text-white rounded px-4 py-2"
+                            onclick="return confirm('Desea eliminar esta publicacion?')">
                           </form>
                         </td>
                       </tr>
