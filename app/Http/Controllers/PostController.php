@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Redis;
 
 class PostController extends Controller
 {
@@ -21,10 +22,15 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->body);
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:posts,slug',
+            'body' => 'required',
+        ]);
+
         $post = $request->user()->posts()->create([
-            'title' => $title = $request->title,
-            'slug' => Str::slug($title),
+            'title' => $request->title,
+            'slug' => $request->slug,
             'body' => $request->body,
         ]);
         return redirect()->route('posts.edit', $post);
@@ -35,9 +41,15 @@ class PostController extends Controller
     }
     public function update(Request $request,Post $post)
     {
+        $request->validate([
+            'title' => 'required',
+            'slug' => ['required',
+                Rule::unique('posts')->ignore($post->id)],
+            'body' => 'required',
+        ]);
         $post->update([
-            'title' => $title = $request->title,
-            'slug'  => Str::slug($title),
+            'title' => $request->title,
+            'slug'  => $request->slug,
             'body'  => $request->body
         ]);
         return redirect()->route('posts.edit', $post);
