@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home(){
-        $posts = Post::latest()->paginate();
+    public function home(Request $request){
+        $search = $request->search;
+        $posts = Post::where('title', 'LIKE', "%{$search}%")->latest()->paginate();
         return view('home', ['posts'=>$posts]);
     }
     public function post(Post $post){

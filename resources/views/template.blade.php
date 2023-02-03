@@ -14,8 +14,8 @@
         <a href="/">
           <img src="{{ asset('img/logo.png') }}" class="h-12">
         </a>
-        <form action="">
-          <input type="text" placeholder="Buscar">
+        <form action="{{ route('home') }}" method="GET">
+          <input type="text" name="search" placeholder="Buscar" value="{{ request('search') }}">
         </form>
       </div>
       @auth
