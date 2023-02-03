@@ -19,15 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PageController::class)->group(function ()
 {
-    # code...
-    Route::get('/home', 'home')->name('home');
-    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/', 'home')->name('home');
     Route::get('/blog/{post:slug}', 'post')->name('post');
-});
-
-
-Route::get('/', function () {
-    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

@@ -12,7 +12,7 @@
     <header class="flex justify-between items-center py-4">
       <div class="flex items-center flex-grow gap-4">
         <a href="">
-          <img src="{{ asset('img/logo.png') }}" class="h-9">
+          <img src="{{ asset('img/logo.png') }}" class="h-12">
         </a>
         <form action="">
           <input type="text" placeholder="Buscar">
@@ -24,8 +24,21 @@
         <a href="{{ route('login') }}">Iniciar Sesion</a>
       @endauth
     </header>
+    {{-- Esto no funciona ARREGLAR --}}
+    <div class="opacity-60 h-px mb-8" style="
+    background: linear-gradient(to right,
+      rgba(200, 200, 200, 0)0%,
+      rgba(200, 200, 200, 0)30%,
+      rgba(200, 200, 200, 0)70%,
+      rgba(200, 200, 200, 0)100%,
+    );
+    ">
+    </div>
+    @yield('content')
+    <p class="py-16">
+      <img src="{{ asset('img/logo.png') }}" class="h-12 mx-auto">
+    </p>
   </div>
   
-  @yield('content')
 </body>
 </html>
