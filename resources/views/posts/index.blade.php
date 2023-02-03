@@ -3,7 +3,7 @@
       <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-300 leading-tight flex items-center justify-between">
           {{ __('Posts') }}
           <a 
-          class="text-xs bg-gray-800 text-withe rounded px-2 py-1"
+          class="text-xs bg-gray-800 text-white rounded px-2 py-1"
           href="{{ route('posts.create') }}">Crear</a>
       </h2>
   </x-slot>
@@ -24,8 +24,8 @@
                           <form action="{{ route('posts.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input t
-                            ype="submit" 
+                            <input 
+                            type="submit" 
                             value="Eliminar" 
                             class="bg-gray-800 text-white rounded px-4 py-2"
                             onclick="return confirm('Desea eliminar esta publicacion?')">

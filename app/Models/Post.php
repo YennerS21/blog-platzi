@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'body',
+    ];
+
+
     /**
      * Este metodo nos realiza la conexion entre la
      * la tabla Posts y Users
