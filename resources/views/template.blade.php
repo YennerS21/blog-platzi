@@ -11,7 +11,7 @@
   <div class="container px-4 mx-auto">
     <header class="flex justify-between items-center py-4">
       <div class="flex items-center flex-grow gap-4">
-        <a href="">
+        <a href="/">
           <img src="{{ asset('img/logo.png') }}" class="h-12">
         </a>
         <form action="">
