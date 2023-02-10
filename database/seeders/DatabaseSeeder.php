@@ -4,7 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+/**
+ * Esta clase permite poner los datos
+ * falsos definidos en el factory
+ * para ingresar datos semillas/falsos
+ * en la base de datos
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
